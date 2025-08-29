@@ -1,6 +1,9 @@
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     smiley.vy = -100
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
+    game.gameOver(false)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite)
